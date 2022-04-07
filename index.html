@@ -1,345 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <style>
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      /* Global Styles */
 
-/* Global Styles */
+      * {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-* {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      body {
+        padding: 40px 10%;
+        background: #f5f5f5;
+      }
 
-body {
-  padding: 40px 10%;
-  background: #f5f5f5;
-}
+      a {
+        text-decoration: none;
+      }
 
-a{
-  text-decoration: none;
-}
+      /* Container Styles */
+      .container {
+        display: flex;
+      }
+      .main-wrapper {
+        flex: 2;
+      }
+      .side-bar {
+        background: #faf9f9;
+        flex: 1;
+        padding: 40px;
+        /* background-color: white; */
+      }
 
-/* Container Styles */
-.container {
-  display: flex;
-}
-.main-wrapper{
-  flex: 2;
-}
-.side-bar{
-  background: #faf9f9;
-  flex: 1;
-  padding: 40px;
-  /* background-color: white; */
-}
+      .side-bar ul {
+        padding: 0 40px;
+        list-style: none;
+      }
 
-.side-bar ul{
-  padding: 0 40px;
-  list-style: none;
-}
+      .side-bar {
+        background: rgb(230, 230, 231);
+      }
 
-.side-bar{
-  background: rgb(230, 230, 231);
-}
+      @media only screen and (max-width: 900px) {
+        .container {
+          flex-direction: column;
+        }
+        .side-bar {
+          background: #114;
+          color: white !important;
+        }
+        .side-bar a {
+          color: white !important;
+        }
+      }
 
+      /* Navigation Menu Styles */
 
-@media only screen and (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-  .side-bar{
-    background: #114;
-    color: white !important;
-  }
-  .side-bar a{
-    color: white !important;
-  }
-}
+      nav.nav-menu {
+        width: 100%;
+        background-color: #114;
+        padding: 10px;
+      }
 
+      nav.nav-menu ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        font-size: clamp(0.8rem, 1.2vw, 2rem);
+      }
 
+      .nav-menu .nav-item {
+        padding: 15px;
+        transition: background-color 500ms ease-in-out;
+      }
 
-/* Navigation Menu Styles */
+      .nav-menu .nav-item:hover {
+        cursor: pointer;
+        background-color: #f5f5f54d;
+      }
 
-nav.nav-menu {
-  width: 100%;
-  background-color: #114;
-  padding: 10px;
-}
+      .nav-menu .nav-item a {
+        text-decoration: none;
+        color: white;
+      }
 
-nav.nav-menu ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  list-style: none;
-  font-size: clamp(.8rem, 1.2vw, 2rem); 
-}
+      /* Main Content Wrapper Styles */
+      .main-wrapper {
+        background: white;
+        padding: 40px;
+      }
 
-.nav-menu .nav-item {
-  padding: 15px;
-  transition: background-color 500ms ease-in-out;
-}
+      section {
+        margin-bottom: 60px;
+      }
 
-.nav-menu .nav-item:hover {
-  cursor: pointer;
-  background-color: #f5f5f54d;
-}
+      section.head,
+      section.youtube-embed {
+        text-align: center;
+      }
 
-.nav-menu .nav-item a{
-  text-decoration: none;
-  color: white;
-}
+      .button-link {
+        display: block;
+        margin: 20px 0 0 0;
+        padding: 10px 40px;
+        width: fit-content;
+        background: #114;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s transform ease-in-out;
+      }
 
+      .button-link:hover {
+        transform: scale(1.05);
+      }
 
-/* Main Content Wrapper Styles */
-.main-wrapper {
-  background: white;
-  padding: 40px;
-}
+      h1 {
+        font-size: 34px;
+      }
 
-section {
-  margin-bottom: 60px;
-}
+      h2 {
+        margin-bottom: 20px;
+      }
 
-section.head,
-section.youtube-embed {
-  text-align: center;
-}
+      p {
+        text-align: justify;
+        margin-bottom: 10px;
+        line-height: 1.5rem;
+      }
 
-.button-link {
-  display: block;
-  margin: 20px 0 0 0;
-  padding: 10px 40px;
-  width: fit-content;
-  background: #114;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s transform ease-in-out;
-}
+      img {
+        max-width: 100%;
+      }
 
-.button-link:hover {
-  transform: scale(1.05);
-}
+      .two-col {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
 
-h1 {
-  font-size: 34px;
-}
+      .two-col div {
+        width: 50%;
+      }
 
-h2 {
-  margin-bottom: 20px;
-}
+      @media only screen and (max-width: 900px) {
+        body {
+          padding: 0;
+        }
 
-p {
-  text-align: justify;
-  margin-bottom: 10px;
-  line-height: 1.5rem;
-}
+        .two-col {
+          flex-direction: column;
+        }
 
-img {
-  max-width: 100%;
-}
+        .two-col div {
+          width: 100%;
+        }
 
-.two-col {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
+        .main-wrapper {
+          padding: 5%;
+        }
+      }
+    </style>
+    <title>Full Service Furniture Removal | NJ Junk Pros</title>
+  </head>
 
-.two-col div {
-  width: 50%;
-}
+  <body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item"><a href="https://njjunkpros.com/">Main</a></li>
+        <li class="nav-item">
+          <a href="https://goo.gl/maps/quVy9YKwgQW4vCM88">Maps</a>
+        </li>
+      </ul>
+    </nav>
 
-@media only screen and (max-width: 900px) {
-  body {
-    padding: 0;
-  }
+    <!-- Main Content Container -->
+    <div class="container">
+      <!-- Main Content Wrapper -->
+      <div class="main-wrapper">
+        <section
+          style="
+            background-image: url(https://njjunkpros.com/wp-content/uploads/2021/04/junk-pros-landing-background-1920x1146-v2-60.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: bottom;
+            min-height: 350px;
+            padding: 20px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          "
+          class="head"
+        >
+          <h1>Full Service Furniture Removal</h1>
+        </section>
 
-  .two-col {
-    flex-direction: column;
-  }
-
-  .two-col div {
-    width: 100%;
-  }
-
-  .main-wrapper {
-    padding: 5%;
-  }
-}
-   </style>
-  <title>Full Service Furniture Removal | NJ Junk Pros</title>
-</head>
-
-<body>
-  <!-- Navigation Menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li class="nav-item"><a href="https://njjunkpros.com/">Main</a></li>
-      <li class="nav-item"><a href="https://goo.gl/maps/quVy9YKwgQW4vCM88">Maps</a></li>
-    </ul>
-  </nav>
-
-  <!-- Main Content Container -->
-  <div class="container">
-
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper">
-      <section style="background-image: url(https://njjunkpros.com/wp-content/uploads/2021/04/junk-pros-landing-background-1920x1146-v2-60.jpg); background-size: cover; background-attachment: fixed; background-position: bottom; min-height: 350px; padding: 20px; color: white; display:flex; flex-direction: column; justify-content: center" class="head">
-        <h1>Full Service Furniture Removal</h1>
-      </section>
-
-      <section>
+        <section>
           <h2>Full Service Furniture Removal</h2>
-          <p>When it comes to furniture removal, we take just about anything. We’ll come get your couch, sofa, loveseat, recliner, dresser, bed, entertainment center, coffee table, dining room table, chairs, wardrobe, kitchen table, you name it. We’ll even take your old favorite Ottoman that everyone makes fun of but you love. Say goodbye to your old furniture after you call us. But don’t worry, we won’t just trash your beloved, loyal furniture, we’ll first look to donate it to someone in need or an organization that is looking for used furniture to share with those in need. We simply rock when it comes to <a href="https://njjunkpros.com/">all junk removal</a>.</p>
-          <a class="button-link"
-                href="https://njjunkpros.com/furniture-removal/">Read More</a>
-      </section>
+          <p>
+            When it comes to furniture removal, we take just about anything.
+            We’ll come get your couch, sofa, loveseat, recliner, dresser, bed,
+            entertainment center, coffee table, dining room table, chairs,
+            wardrobe, kitchen table, you name it. We’ll even take your old
+            favorite Ottoman that everyone makes fun of but you love. Say
+            goodbye to your old furniture after you call us. But don’t worry, we
+            won’t just trash your beloved, loyal furniture, we’ll first look to
+            donate it to someone in need or an organization that is looking for
+            used furniture to share with those in need. We simply rock when it
+            comes to <a href="https://njjunkpros.com/">all junk removal</a>.
+          </p>
+          <a
+            class="button-link"
+            href="https://njjunkpros.com/furniture-removal/"
+            >Read More</a
+          >
+        </section>
 
-      <section>
+        <section>
           <h2>Besides Furniture, We Take Just About Anything Else Too!</h2>
-          <br>
+          <br />
           <div class="two-col">
-              <div style="display:flex; justify-content: center">
-                  <ul>
-                      <li>Residential OR Commercial</li><br>
-                      <li>House Clean Outs</li><br>
-                      <li>Estate Clean Outs</li><br>
-                      <li>Demolition</li><br>
-                      <li>Foreclosure Clean Out</li><br>
-                      <li>Hot Tub Removal</li><br>
-                      <li>Shed Removal</li><br>
-                      <li>Deck Removal</li><br>
-                      <li>Construction Removal</li><br>
-                      <li>Fence Removal</li><br>
-                      <li>Piano Removal</li><br>
-                      <li>Appliance Removal</li>
-                  </ul>
-              </div>
-              <div>
-                  <ul>
-                      <li>Furniture Removal</li><br>
-                      <li>Mattress and Bedding</li><br>
-                      <li>Scrap Metal & Iron</li><br>
-                      <li>Recycling</li><br>
-                      <li>Home and Office</li><br>
-                      <li>BBQ grills</li><br>
-                      <li>Exercise Equipment</li><br>
-                      <li>Boat Removal</li><br>
-                      <li>Rubbish Removal</li><br>
-                      <li>Trash & Garbage Pickup</li><br>
-                      <li>Debris Cleanup</li><br>
-                      <li>Construction Cleanup</li><br>
-                  </ul>
-              </div>
+            <div style="display: flex; justify-content: center">
+              <ul>
+                <li>Residential OR Commercial</li>
+                <br />
+                <li>House Clean Outs</li>
+                <br />
+                <li>Estate Clean Outs</li>
+                <br />
+                <li>Demolition</li>
+                <br />
+                <li>Foreclosure Clean Out</li>
+                <br />
+                <li>Hot Tub Removal</li>
+                <br />
+                <li>Shed Removal</li>
+                <br />
+                <li>Deck Removal</li>
+                <br />
+                <li>Construction Removal</li>
+                <br />
+                <li>Fence Removal</li>
+                <br />
+                <li>Piano Removal</li>
+                <br />
+                <li>Appliance Removal</li>
+              </ul>
+            </div>
+            <div>
+              <ul>
+                <li>Furniture Removal</li>
+                <br />
+                <li>Mattress and Bedding</li>
+                <br />
+                <li>Scrap Metal & Iron</li>
+                <br />
+                <li>Recycling</li>
+                <br />
+                <li>Home and Office</li>
+                <br />
+                <li>BBQ grills</li>
+                <br />
+                <li>Exercise Equipment</li>
+                <br />
+                <li>Boat Removal</li>
+                <br />
+                <li>Rubbish Removal</li>
+                <br />
+                <li>Trash & Garbage Pickup</li>
+                <br />
+                <li>Debris Cleanup</li>
+                <br />
+                <li>Construction Cleanup</li>
+                <br />
+              </ul>
+            </div>
           </div>
-          <a class="button-link"
-                href="https://njjunkpros.com/">Visit Us</a>
-      </section>
+          <a class="button-link" href="https://njjunkpros.com/">Visit Us</a>
+        </section>
 
-      <hr>
-      <br>
+        <hr />
+        <br />
 
-      <section>
-          <h2 style="text-align: center">Affordable Furniture Removal Pricing</h2>
-          <br>
+        <section>
+          <h2 style="text-align: center">
+            Affordable Furniture Removal Pricing
+          </h2>
+          <br />
           <div class="two-col">
-              <div>
-                  <img src="https://njjunkpros.com/wp-content/uploads/2021/04/junk-pros-big-truck-vs-their-small-truck.png" alt="Junk Removal New Jersey">
-              </div>
-              <div>
-                  <h2>Size Matters When It Comes To Furniture Removal</h2>
-                  <p>When it comes to great pricing, size matters! The bigger the truck, the cheaper the cost to you. So call the franchises if you want, but their BABY TRUCK, PLUS THEIR FRANCHISE FEES, lead to inflated costs for you – about 10-25% more than ours.</p>
-                  <p>All because we have a BIGGER TRUCK.</p>
-                  <p>YES</p>
-                  <p>“Bigger is Better”</p>
-                  <p>“Size Matters”</p>
-                  <p>Once you go big… you never go…. you get the idea…</p>
-              </div>
+            <div>
+              <img
+                src="https://njjunkpros.com/wp-content/uploads/2021/04/junk-pros-big-truck-vs-their-small-truck.png"
+                alt="Junk Removal New Jersey"
+              />
+            </div>
+            <div>
+              <h2>Size Matters When It Comes To Furniture Removal</h2>
+              <p>
+                When it comes to great pricing, size matters! The bigger the
+                truck, the cheaper the cost to you. So call the franchises if
+                you want, but their BABY TRUCK, PLUS THEIR FRANCHISE FEES, lead
+                to inflated costs for you – about 10-25% more than ours.
+              </p>
+              <p>All because we have a BIGGER TRUCK.</p>
+              <p>YES</p>
+              <p>“Bigger is Better”</p>
+              <p>“Size Matters”</p>
+              <p>Once you go big… you never go…. you get the idea…</p>
+            </div>
           </div>
+        </section>
 
-      </section>
+        <hr />
+        <br />
 
-      <hr>
-      <br>
-
-      <section>
-          <h2 style="text-align: center">We Are Magicians - We Show Up, Your S*** Disappears</h2>
-          <p>No furniture removal job is too big or too small for our muscular, super friendly, clean, ready to help, funny, happy magicians…</p>
-          <br>
+        <section>
+          <h2 style="text-align: center">
+            We Are Magicians - We Show Up, Your S*** Disappears
+          </h2>
+          <p>
+            No furniture removal job is too big or too small for our muscular,
+            super friendly, clean, ready to help, funny, happy magicians…
+          </p>
+          <br />
           <div>
-              <img src="https://njjunkpros.com/wp-content/uploads/2021/04/junk-pros-before-after-9.jpg" alt="Junk Removal New Jersey">
+            <img
+              src="https://njjunkpros.com/wp-content/uploads/2021/04/junk-pros-before-after-9.jpg"
+              alt="Junk Removal New Jersey"
+            />
           </div>
-          <br>
+          <br />
           <div>
-              <img src="https://njjunkpros.com/wp-content/uploads/2021/04/junk-pros-before-after-3.jpg" alt="Junk Removal New Jersey">
+            <img
+              src="https://njjunkpros.com/wp-content/uploads/2021/04/junk-pros-before-after-3.jpg"
+              alt="Junk Removal New Jersey"
+            />
           </div>
-          <br>
+          <br />
           <div>
-              <img src="https://njjunkpros.com/wp-content/uploads/2021/04/junk-pros-before-after-4.jpg" alt="Junk Removal New Jersey">
+            <img
+              src="https://njjunkpros.com/wp-content/uploads/2021/04/junk-pros-before-after-4.jpg"
+              alt="Junk Removal New Jersey"
+            />
           </div>
-          <br>
+          <br />
           <div>
-              <img src="https://njjunkpros.com/wp-content/uploads/2021/04/junk-pros-before-after-5.jpg" alt="Junk Removal New Jersey">
+            <img
+              src="https://njjunkpros.com/wp-content/uploads/2021/04/junk-pros-before-after-5.jpg"
+              alt="Junk Removal New Jersey"
+            />
           </div>
-          <a class="button-link"
-                href="https://google.com/maps/?cid=1274843292851211631">Find Us Here!</a>
-      </section>
+          <a
+            class="button-link"
+            href="https://google.com/maps/?cid=1274843292851211631"
+            >Find Us Here!</a
+          >
+        </section>
 
-      <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d777536.7816023306!2d-75.1180497!3d40.4253952!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1374deb7dbfb403%3A0x11b127386eaf8d6f!2sJunk%20Pros!5e0!3m2!1sen!2sph!4v1649302883083!5m2!1sen!2sph" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d777536.7816023306!2d-75.1180497!3d40.4253952!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1374deb7dbfb403%3A0x11b127386eaf8d6f!2sJunk%20Pros!5e0!3m2!1sen!2sph!4v1649302883083!5m2!1sen!2sph"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://www.busytourist.com/things-to-do-in-new-jersey/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.busytourist.com/things-to-do-in-new-jersey/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://www.nj.com/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.nj.com/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://njjunkpros.com/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://njjunkpros.com/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./index.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./index.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-     
+        <section>
+          <a
+            target="_bLank"
+            href="https://rank-fortress-digital-agency.github.io/njjunkpros/"
+            >https://rank-fortress-digital-agency.github.io/njjunkpros/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="http://njjunkpros.s3-website-ap-southeast-1.amazonaws.com/"
+            >http://njjunkpros.s3-website-ap-southeast-1.amazonaws.com/</a
+          ><br />
+          <a target="_bLank" href="https://calm-basbousa-9058b9.netlify.app/"
+            >https://calm-basbousa-9058b9.netlify.app/</a
+          ><br />
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="side-bar">
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li>
+              <a href="https://google.com/maps/?cid=1274843292851211631"
+                >Google Page</a
+              >
+            </li>
+            <li><a href="#">Youtube</a></li>
+            <li><a href="#">Pearltrees</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Google Site</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="https://njjunkpros.com/">Main</a></li>
+            <li>
+              <a href="https://google.com/maps/?cid=1274843292851211631"
+                >Maps</a
+              >
+            </li>
+            <li><a href="#">Media</a></li>
+          </ul>
+        </section>
+      </div>
     </div>
-
-    <!-- Sidebar -->
-    <div class="side-bar">
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="https://google.com/maps/?cid=1274843292851211631">Google Page</a></li>
-          <li><a href="#">Youtube</a></li>
-          <li><a href="#">Pearltrees</a></li>
-          <li><a href="#">Calendar</a></li>
-          <li><a href="#">Google Site</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://njjunkpros.com/">Main</a></li>
-          <li><a href="https://google.com/maps/?cid=1274843292851211631">Maps</a></li>
-          <li><a href="#">Media</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
